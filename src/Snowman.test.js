@@ -4,7 +4,6 @@ import Snowman from "./Snowman";
 it("matches snapshot", function () {
   const { container, debug } = render(<Snowman
   />);
-  debug()
   expect(container).toMatchSnapshot();
 });
 
@@ -20,10 +19,24 @@ it("shows the message You Lose", function () {
   const { container, debug } = render(
     <Snowman
     />);
+    const letterB = container.querySelector('[value="b"]')
+    const letterC = container.querySelector('[value="c"]')
+    const letterD = container.querySelector('[value="d"]')
+    const letterF = container.querySelector('[value="f"]')
+    const letterG = container.querySelector('[value="g"]')
+    const letterH = container.querySelector('[value="h"]')
 
+    fireEvent.click(letterB)
+    fireEvent.click(letterC)
+    fireEvent.click(letterD)
+    fireEvent.click(letterF)
+    fireEvent.click(letterG)
+    fireEvent.click(letterH)
+    // debug(container.querySelector(".loseGame"))
+    debug(container.querySelector(".loseGame"))
     expect(
       container.querySelector(".loseGame")
-    ).toContainHTML(<p> You Lose </p>);
+    ).toContain(<div class="loseGame"> <h4>Correct Word : apple</h4><p>You Lose</p></div>);
 
     expect(
       container.querySelector('button')
