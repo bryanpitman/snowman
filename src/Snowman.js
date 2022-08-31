@@ -72,12 +72,28 @@ function Snowman({
         </button>
     ));
   }
+  if (nWrong >= maxWrong) {
+    //take out the images
+    //take out the buttons
+    // add you lose
+  } else {
+    //keep images and buttons
+  }
+
+
+  // {nWrong !== maxWrong && <i
+  //   className="bi bi-arrow-right-circle"
+  //   onClick={goForward}
+  // />}
 
   return (
       <div className="Snowman">
+
         <img src={(images)[nWrong]} alt={nWrong} />
         <p className="Snowman-word">{guessedWord()}</p>
         <p>{generateButtons()}</p>
+        <p>{ nWrong }</p>
+
       </div>
   );
 }
